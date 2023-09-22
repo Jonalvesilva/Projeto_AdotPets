@@ -26,7 +26,7 @@ export function CustomMenu(props: props) {
       <MenuHandler>
         <Button
           variant="text"
-          className="flex items-center gap-3 text-base font-normal capitalize tracking-normal"
+          className="flex items-center gap-3 text-base font-normal capitalize tracking-normal md:text-lg lg:text-xl"
         >
           {props.title}{" "}
           <ChevronDownIcon
@@ -37,11 +37,15 @@ export function CustomMenu(props: props) {
           />
         </Button>
       </MenuHandler>
-      <MenuList className="w-[20rem] mt-6 rounded-xl overflow-visible outline-none shadow-md shadow-gray">
-        <ul className="col-span-4 flex w-full flex-col gap-1 outline-none">
+      <MenuList className="w-[15rem] mt-12 rounded-xl overflow-visible outline-none shadow-md shadow-gray">
+        <ul className="col-span-4 flex w-full flex-col outline-none">
           {props.items.map(({ title, url }) => {
             return (
-              <LinkButton to={`${url}`} key={title}>
+              <LinkButton
+                to={`${url}`}
+                key={title}
+                className="p-2 hover:bg-[#5F9EA0] hover:text-white border-b-[1px] ease-in duration-200"
+              >
                 <MenuItem>{title}</MenuItem>
               </LinkButton>
             );
