@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { CustomMenu } from "./CustomMenu";
 import { LinkButton } from "./LinkButton";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { FaFacebook, FaWhatsapp, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useNavStore } from "../useNavStore";
 
 export function Appbar() {
   const itensMenu = [
@@ -16,21 +17,28 @@ export function Appbar() {
 
   const [nav, setNav] = useState(false);
   const [menuInst, setMenuInst] = useState(false);
+  const setIsNav = useNavStore((state: any) => state.setIsNav);
   const handleNav = () => {
     setNav(!nav);
+    setIsNav(!nav);
   };
 
   const handleMenuInst = () => {
     setMenuInst(!menuInst);
   };
 
+  useEffect(() => {
+    const style = document.getElementsByTagName("body")[0].style;
+    nav ? (style.overflow = "hidden") : (style.overflow = "");
+  }, [nav]);
+
   return (
     <div
       id="appbar"
-      className="h-[110px] sticky bg-[#5F9EA0] flex items-center"
+      className="h-[110px] w-full sticky top-0 left-0 z-20 bg-[#5F9EA0] flex items-center"
     >
       {/*Appbar*/}
-      <div id="div-appbar" className="flex h-full w-full justify-between">
+      <div id="div-appbar" className="flex h-full w-full justify-between ">
         <div id="div-logo" className="w-32">
           <img src="logo.png" alt="logo" className="w-full h-full" />
         </div>
@@ -77,20 +85,20 @@ export function Appbar() {
         <div
           className={
             nav
-              ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/50"
+              ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/50 min-h-[800px]"
               : ""
           }
         >
           <div
             className={
               nav
-                ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-300"
-                : "fixed left-[-100%] top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] ease-in duration-300"
+                ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-300 min-h-[800px]"
+                : "fixed left-[-100%] top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] ease-in duration-300 min-h-[800px]"
             }
           >
-            <div>
+            <div className="">
               <div className="flex w-full items-center justify-between">
-                <img src="logo.png" className="w-32 h-28"></img>
+                <img src="logo.png" className="w-32 h-28" alt="logo"></img>
                 <div
                   onClick={handleNav}
                   className="text-black rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
@@ -130,6 +138,7 @@ export function Appbar() {
                           <LinkButton
                             key={`mobileLink-${index}`}
                             to={`${element.url}`}
+                            onclick={handleNav}
                           >
                             <li
                               key={`mobile-${index}`}
@@ -140,7 +149,7 @@ export function Appbar() {
                       })}
                     </ul>
                   </li>
-                  <LinkButton to="/">
+                  <LinkButton to="/" onclick={handleNav}>
                     <li
                       key="mobile-adocaodecao"
                       className="py-3 text-sm text-black"
@@ -148,7 +157,7 @@ export function Appbar() {
                       Adoção de Cães
                     </li>
                   </LinkButton>
-                  <LinkButton to="/">
+                  <LinkButton to="/" onclick={handleNav}>
                     <li
                       key="mobile-adocaodegato"
                       className="py-3 text-sm text-black"
@@ -156,7 +165,7 @@ export function Appbar() {
                       Adoção de Gatos
                     </li>
                   </LinkButton>
-                  <LinkButton to="/">
+                  <LinkButton to="/" onclick={handleNav}>
                     <li
                       key="mobile-contato"
                       className="py-3 text-sm text-black"
