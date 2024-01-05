@@ -1,17 +1,17 @@
 import "./App.css";
 import { Appbar } from "./components/Appbar";
 import { Home } from "./routes/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Appbar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
