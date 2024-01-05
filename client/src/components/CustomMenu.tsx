@@ -6,7 +6,6 @@ import {
   MenuItem,
   Button,
 } from "@material-tailwind/react";
-import { LinkButton } from "./LinkButton";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 type item = {
@@ -41,13 +40,13 @@ export function CustomMenu(props: props) {
         <ul className="col-span-4 flex w-full flex-col outline-none">
           {props.items.map(({ title, url }) => {
             return (
-              <LinkButton
-                to={`${url}`}
+              <a
+                href={`${url}`}
                 key={title}
                 className="p-2 hover:bg-[#5F9EA0] hover:text-white border-b-[1px] ease-in duration-200"
               >
                 <MenuItem>{title}</MenuItem>
-              </LinkButton>
+              </a>
             );
           })}
         </ul>

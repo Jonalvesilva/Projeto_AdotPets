@@ -9,10 +9,10 @@ import { useNavStore } from "../useNavStore";
 
 export function Appbar() {
   const itensMenu = [
-    { title: "Quem Somos", url: "/#quemsomos" },
-    { title: "Como Funciona", url: "/#comofunciona" },
-    { title: "Como Adotar", url: "/#comoadotar" },
-    { title: "Sites Parceiros", url: "/#sitesparceiros" },
+    { title: "Início", url: "#carousel1" },
+    { title: "Quem Somos", url: "#quemsomos" },
+    { title: "Como Funciona", url: "#comofunciona" },
+    { title: "Como Adotar", url: "#comoadotar" },
   ];
 
   const [nav, setNav] = useState(false);
@@ -35,7 +35,7 @@ export function Appbar() {
   return (
     <div
       id="appbar"
-      className="h-[110px] w-full sticky top-0 left-0 z-20 bg-[#5F9EA0] flex items-center"
+      className="h-[110px] w-full sticky top-0 left-0  z-10 bg-[#5F9EA0] flex items-center"
     >
       {/*Appbar*/}
       <div id="div-appbar" className="flex h-full w-full justify-between ">
@@ -46,25 +46,27 @@ export function Appbar() {
         <ul className="hidden md:flex items-center px-4 gap-10 md:text-lg lg:text-xl">
           <li
             key="institucional"
-            className="text-white hover:bg-white hover:text-black ease-in duration-200 p-2 rounded-lg"
+            className="text-white hover:bg-white hover:text-black ease-in duration-200  rounded-lg"
           >
             <CustomMenu title={"Institucional"} items={itensMenu} />
           </li>
+
           <li
             key="adocaodecao"
-            className="text-white hover:text-black hover:bg-white ease-in duration-200 p-2 rounded-lg cursor-pointer"
+            className="text-white hover:text-black hover:bg-white ease-in duration-200 p-3 rounded-lg cursor-pointer"
           >
             Adoção de Cães
           </li>
+
           <li
             key="adocaodegato"
-            className="text-white hover:text-black  hover:bg-white ease-in duration-200 p-2 rounded-lg  cursor-pointer"
+            className="text-white hover:text-black  hover:bg-white ease-in duration-200 p-3 rounded-lg  cursor-pointer"
           >
             Adoção de Gatos
           </li>
           <li
             key="contato"
-            className="text-white hover:text-black hover:bg-white ease-in duration-200 p-2 rounded-lg  cursor-pointer"
+            className="text-white hover:text-black hover:bg-white ease-in duration-200 p-3 rounded-lg  cursor-pointer"
           >
             Contato
           </li>
@@ -109,12 +111,12 @@ export function Appbar() {
               <div className="border-b border-gray-300 my-4">
                 <p className="text-black w-[85%] md:w-[90%] py-4">ADOTPETS</p>
               </div>
-              <div className="py-4 flex flex-col">
+              <div className="flex flex-col">
                 <ul className="uppercase flex flex-col ">
                   <li
                     key="mobile-institucional"
                     onClick={handleMenuInst}
-                    className="py-3 text-sm text-black flex flex-col cursor-pointer"
+                    className="text-sm py-3 text-black flex flex-col cursor-pointer"
                   >
                     {" "}
                     <div className="flex flex-row">
@@ -135,16 +137,16 @@ export function Appbar() {
                     >
                       {itensMenu.map((element, index) => {
                         return (
-                          <LinkButton
+                          <a
                             key={`mobileLink-${index}`}
-                            to={`${element.url}`}
-                            onclick={handleNav}
+                            href={`${element.url}`}
+                            onClick={handleNav}
                           >
                             <li
                               key={`mobile-${index}`}
                               className="p-2"
                             >{`${element.title}`}</li>
-                          </LinkButton>
+                          </a>
                         );
                       })}
                     </ul>
