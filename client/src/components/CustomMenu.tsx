@@ -7,6 +7,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 type item = {
   title: string;
@@ -36,17 +37,24 @@ export function CustomMenu(props: props) {
           />
         </Button>
       </MenuHandler>
-      <MenuList className="w-[15rem] mt-12 rounded-xl overflow-visible outline-none shadow-md shadow-gray">
+      <MenuList
+        className="w-[15rem] mt-12 rounded-xl overflow-visible outline-none shadow-md shadow-gray"
+        id="menulist"
+      >
         <ul className="col-span-4 flex w-full flex-col outline-none">
           {props.items.map(({ title, url }) => {
             return (
-              <a
-                href={`${url}`}
+              <Link
+                to={`${url}`}
                 key={title}
+                spy={true}
+                smooth={true}
+                offset={-200}
+                duration={900}
                 className="p-2 hover:bg-[#5F9EA0] hover:text-white border-b-[1px] ease-in duration-200"
               >
-                <MenuItem>{title}</MenuItem>
-              </a>
+                <MenuItem onClick={() => setOpenMenu(false)}>{title}</MenuItem>
+              </Link>
             );
           })}
         </ul>

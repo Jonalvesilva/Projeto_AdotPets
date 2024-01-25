@@ -6,13 +6,14 @@ import { LinkButton } from "./LinkButton";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { FaFacebook, FaWhatsapp, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useNavStore } from "../useNavStore";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export function Appbar() {
   const itensMenu = [
-    { title: "Início", url: "#carousel1" },
-    { title: "Quem Somos", url: "#quemsomos" },
-    { title: "Como Funciona", url: "#comofunciona" },
-    { title: "Como Adotar", url: "#comoadotar" },
+    { title: "Início", url: "carousel1" },
+    { title: "Quem Somos", url: "quemsomos" },
+    { title: "Como Funciona", url: "comofunciona" },
+    { title: "Como Adotar", url: "comoadotar" },
   ];
 
   const [nav, setNav] = useState(false);
@@ -137,16 +138,20 @@ export function Appbar() {
                     >
                       {itensMenu.map((element, index) => {
                         return (
-                          <a
+                          <Link
                             key={`mobileLink-${index}`}
-                            href={`${element.url}`}
+                            spy={true}
+                            smooth={true}
+                            offset={-200}
+                            duration={900}
+                            to={`${element.url}`}
                             onClick={handleNav}
                           >
                             <li
                               key={`mobile-${index}`}
                               className="p-2"
                             >{`${element.title}`}</li>
-                          </a>
+                          </Link>
                         );
                       })}
                     </ul>
