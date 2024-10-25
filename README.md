@@ -41,8 +41,8 @@
 <h2>Fotos</h2>
 <table>
   <tr>
-    <td><img src="https://media.licdn.com/dms/image/D4D2DAQFAJBhIO8EXSg/profile-treasury-image-shrink_800_800/0/1707254109941?e=1714413600&v=beta&t=VizkZRji69M3q1-vG-C9uW83yYZo-LdGhH4_Ovxhrqs"/></td>
-    <td> <img src="https://media.licdn.com/dms/image/D4D2DAQFkxqhWdE8CAg/profile-treasury-image-shrink_800_800/0/1707253896344?e=1714413600&v=beta&t=O6Zy_z6n4v97YeUuIPaEoPIXt8C9o7gSFMRYCwTmgpQ"/></td>
+    <td><img src="https://drive.google.com/uc?export=view&id=1EnZL4axb2AAagpnM5a44D-bxw0WeUnVK" width="500"/></td>
+    <td> <img src="https://drive.google.com/uc?export=view&id=1WhcBobjWgUv3xfGpi9FsWMwgG3weFrhv" width="500"/></td>
   </tr>
 </table>
 <h2>Contribuição</h2>
