@@ -178,7 +178,7 @@ export function Home() {
           className="w-full md:w-[700px] md:mx-auto lg:w-[600px] lg:mx-0"
         >
           <video
-            src="https://www.adotepetz.com.br/videos/adote-petz.mp4"
+            src="adote-petz.mp4"
             controls
             poster="poster.jpg"
             className="rounded-lg"
